@@ -1,4 +1,4 @@
-# **Ohjelmistotekniikan kurssin repositorio**
+# **Ohjelmistotekniikka, harjoitustyö**
 
 Tämä repositorio on luotu **Ohjelmistotekniikka**-kurssia varten.
 
