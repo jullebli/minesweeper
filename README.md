@@ -12,3 +12,6 @@ README:ssä on myös linkit tehtäviin.
 [gitlog.txt](https://github.com/jullebli/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
 
 [komentorivi.txt](https://github.com/jullebli/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+
+
+Tehdään tänne loppuun paikallisesti muutos epäsynkrooni-"tehtävää" varten
