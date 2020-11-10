@@ -14,4 +14,12 @@ README:ssä on myös linkit tehtäviin.
 [komentorivi.txt](https://github.com/jullebli/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
 
-Tehdään tänne loppuun paikallisesti muutos epäsynkrooni-"tehtävää" varten
+### Viikko 2
+
+[testikattavuus.png](https://github.com/jullebli/ot-harjoitustyo/blob/master/laskarit/viikko2/Testikattavuus.png)
+
+[Unicafe/KassapaateTest.java](https://github.com/jullebli/ot-harjoitustyo/blob/master/laskarit/viikko2/Unicafe/src/test/java/com/mycompany/unicafe/KassapaateTest.java)
+
+[Unicafe/MaksukorttiTest.java](https://github.com/jullebli/ot-harjoitustyo/blob/master/laskarit/viikko2/Unicafe/src/test/java/com/mycompany/unicafe/MaksukorttiTest.java)
+
+[MaksukorttiTest.java](https://github.com/jullebli/ot-harjoitustyo/blob/master/laskarit/viikko2/Maksukortti/src/test/java/MaksukorttiTest.java)
