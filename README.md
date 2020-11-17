@@ -26,8 +26,8 @@ README:ssä on myös linkit tehtäviin.
 
 ### Viikko 3
 
-[Monopoli-luokkakaavio] (https://github.com/jullebli/ot-harjoitustyo/blob/master/laskarit/viikko3/Monopoli-luokkakaavio.pdf)
+[Monopoli-luokkakaavio](https://github.com/jullebli/ot-harjoitustyo/blob/master/laskarit/viikko3/Monopoli-luokkakaavio.pdf)
 
-[BensaJaTankki-sekvenssikaavio] (https://github.com/jullebli/ot-harjoitustyo/blob/master/laskarit/viikko3/BenjaJaTankkiSekvenssikaavio.png)
+[BensaJaTankki-sekvenssikaavio](https://github.com/jullebli/ot-harjoitustyo/blob/master/laskarit/viikko3/BenjaJaTankkiSekvenssikaavio.png)
 
-[HKL-sekvenssikaavio] (https://github.com/jullebli/ot-harjoitustyo/blob/master/laskarit/viikko3/HKLSekvenssikaavio.png)
+[HKL-sekvenssikaavio](https://github.com/jullebli/ot-harjoitustyo/blob/master/laskarit/viikko3/HKLSekvenssikaavio.png)
