@@ -1,9 +1,12 @@
-# **Ohjelmistotekniikka, harjoitustyö**
+# **Ohjelmistotekniikka, harjoitustyö: Miinaharava**
 
-Tämä repositorio on luotu **Ohjelmistotekniikka**-kurssia varten.
+Ohjelmistotekniikka -kurssilla teen sovelluksen, jolla voi pelata Miinaharava-peliä.
 
-*Laskarit*-hakemistoon tulee laskaritehtävien vastauksia. Jokaisella viikolla on oma hakemisto, esim. *viikko1*, *viikko2* jne. 
-README:ssä on myös linkit tehtäviin.
+
+[Vaatimusmäärittely](https://github.com/jullebli/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+
+[Työaikakirjanpito](https://github.com/jullebli/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+
 
 ## Tehtävät
 
