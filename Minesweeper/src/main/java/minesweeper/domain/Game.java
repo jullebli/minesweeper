@@ -48,6 +48,7 @@ public class Game {
             for (int x = 0; x < getWidth(); x++) {
                 if (mineMap[y].charAt(x) == 'M') {
                     totalMines++;
+                    mine[y][x] = true;
                 }
             }
         }

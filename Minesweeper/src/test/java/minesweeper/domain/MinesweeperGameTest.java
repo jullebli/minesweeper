@@ -42,7 +42,7 @@ public class MinesweeperGameTest {
     
     @Test
     public void whenOpensMineThenIsRunningReturnsFalse() {
-        game.open(7, 0); //has a mine
+        game.open(3, 5); //has a mine x = 3, y = 5
         assertFalse(game.isRunning());
     }
     
@@ -51,5 +51,8 @@ public class MinesweeperGameTest {
         assertFalse(game.isVictory());
     }
     
-    
+    @Test
+    public void countMinesReturns8() {
+        assertEquals(game.countMines(6,1), 8);
+    }
 }
