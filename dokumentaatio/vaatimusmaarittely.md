@@ -4,7 +4,7 @@
 
 Sovelluksen avulla pelaaja voi pelata miinaharavapeliä. Pelissä on tarkoitus avata kaikki muut ruudut kuin ne joissa on miina. Pelaaja voittaa pelin, kun kaikki ruudut paitsi ne joissa on miinoja on avattu. Pelaaja häviää pelin jos hän yrittää avata ruutua, jossa on miina. Jos avatun ruudun viereisissä ruuduissa on miinoja, niin ruutuun tulee luku, joka kuvastaa montako miinaa sen viereisissä ruuduissa on yhteensä.
 
-Lopullisessa sovelluksessa on graafinen käyttöliittymä. Kehitysvaiheessa todennäköisesti käytetään tekstikäyttöliittymää.
+Lopullisessa sovelluksessa on graafinen käyttöliittymä. Kehitysvaiheessa käytetään tekstikäyttöliittymää.
 
 
 ## Suunnitellut toiminnallisuudet perusversioon
@@ -23,3 +23,5 @@ Lopullisessa sovelluksessa on graafinen käyttöliittymä. Kehitysvaiheessa tode
 - pelaaja voi valita eri vaikeustason uudelle pelille (easy, normal, hard jne.)
 - pelaaja voi tallentaa pelin
 - jatkaa tallennettua peliä  myöhemmin
+- ensimmäisellä avauksella ei voi osua miinaan
+- kun pelaaja häviää, paljastetaan miinojen sijainti
