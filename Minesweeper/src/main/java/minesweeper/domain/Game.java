@@ -1,4 +1,4 @@
-package minesweeper;
+package minesweeper.domain;
 
 import java.util.Random;
 
@@ -108,10 +108,16 @@ public class Game {
             return running;
         }
 
+        openNeighbouringSquares(x, y);
+
+        return running;
+    }
+    
+    private void openNeighbouringSquares(int x, int y) {
         if (countMines(x, y) == 0) {
             // if 0 mines, go through neigbouring squares
             int[][] neighbours = {{-1, -1}, {-1, 0}, {-1, 1}, {0, 1}, {1, 1},
-            {1, 0}, {1, -1}, {0, -1}};
+                                  {1, 0}, {1, -1}, {0, -1}};
 
             for (int i = 0; i < 8; i++) {
                 int nY = y + neighbours[i][0];
@@ -121,15 +127,13 @@ public class Game {
                 }
             }
         }
-
-        return running;
     }
 
     public int countMines(int x, int y) {
         //count mines in neighbouring squares
         int mineCount = 0;
         int[][] neighbours = {{-1, -1}, {-1, 0}, {-1, 1}, {0, 1}, {1, 1},
-        {1, 0}, {1, -1}, {0, -1}};
+                              {1, 0}, {1, -1}, {0, -1}};
 
         for (int i = 0; i < 8; i++) {
             int nY = y + neighbours[i][0];

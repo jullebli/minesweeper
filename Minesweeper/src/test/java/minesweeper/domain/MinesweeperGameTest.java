@@ -1,5 +1,5 @@
 
-package minesweeper;
+package minesweeper.domain;
 
 import org.junit.After;
 import org.junit.Before;

@@ -1,6 +1,7 @@
-package minesweeper;
+package minesweeper.ui;
 
 import java.util.Scanner;
+import minesweeper.domain.Game;
 
 public class MinesweeperTextUi {
 
