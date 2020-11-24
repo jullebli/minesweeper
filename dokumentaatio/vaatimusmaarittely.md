@@ -9,19 +9,19 @@ Lopullisessa sovelluksessa on graafinen käyttöliittymä. Kehitysvaiheessa käy
 
 ## Suunnitellut toiminnallisuudet perusversioon
 
-- pelaaja voi aloittaa uuden pelin
-  - pelaaja voi valita kentän koon
-- pelaaja voi avata ruutuja
+- pelaaja voi aloittaa uuden pelin "tehty"
+  - pelaaja voi valita kentän koon "tehty"
+- pelaaja voi avata ruutuja "tehty"
 - pelaaja voi poistua pelistä
 
 
 ## Jatkokehitysideat
 
 - pelaaja voi merkitä ruutuja lipulla
-- jos pelaaja avaa ruudun, jonka ympärillä ei ole yhtään miinaa, niin peli avaa automaattisesti kaikki vieressä olevat ruudut, kunnes avatun ruudun vieressä on miina/miinoja
+- jos pelaaja avaa ruudun, jonka ympärillä ei ole yhtään miinaa, niin peli avaa automaattisesti kaikki vieressä olevat ruudut, kunnes avatun ruudun vieressä on miina/miinoja "tehty"
 - pelaaja voi tutustua pelin sääntöihin sovelluksen sisällä
 - pelaaja voi valita eri vaikeustason uudelle pelille (easy, normal, hard jne.)
 - pelaaja voi tallentaa pelin
-- jatkaa tallennettua peliä  myöhemmin
+- pelaaja voi jatkaa tallennettua peliä  myöhemmin
 - ensimmäisellä avauksella ei voi osua miinaan
 - kun pelaaja häviää, paljastetaan miinojen sijainti
