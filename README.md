@@ -9,3 +9,5 @@ Sovelluksen avulla pelaaja voi pelata miinaharavapeliä. Pelissä on tarkoitus a
 
 [Työaikakirjanpito](https://github.com/jullebli/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
+[Arkkitehtuurikuvaus](https://github.com/jullebli/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+
