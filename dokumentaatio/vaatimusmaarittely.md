@@ -13,6 +13,8 @@ Lopullisessa sovelluksessa on graafinen käyttöliittymä. Kehitysvaiheessa käy
   - pelaaja voi valita kentän koon "tehty"
 - pelaaja voi avata ruutuja "tehty"
 - pelaaja voi poistua pelistä
+- tekstikäyttöliittymä kehitykseen "tehty"
+- graafinen käyttöliittymä
 
 
 ## Jatkokehitysideat
