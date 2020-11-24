@@ -15,6 +15,7 @@ public class MinesweeperTextUi {
         int height = Integer.valueOf(reader.nextLine());
         System.out.println("Enter width: ");
         int width = Integer.valueOf(reader.nextLine());
+        System.out.println("");
 
         Game game = new Game(width, height);
         
@@ -27,6 +28,7 @@ public class MinesweeperTextUi {
             y = Integer.valueOf(reader.nextLine());
             System.out.println("Enter x (0 - " + (game.getWidth() - 1) + "):");
             x = Integer.valueOf(reader.nextLine());
+            System.out.println("");
 
         } while (game.open(x, y));
 
