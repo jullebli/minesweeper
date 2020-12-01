@@ -19,19 +19,33 @@ public class MinesweeperTextUi {
         System.out.println("");
 
         Game game = new Game(width, height);
-        
+
         int x, y;
 
         do {
             showBoard(game);
-            System.out.println("Open square.");
-            System.out.println("Enter y (0 - " + (game.getHeight() - 1) + "):");
+            System.out.print("Enter command (o = open, f = toggle a flag): ");
+            String command = reader.nextLine();
+            System.out.print("Enter y (0 - " + (game.getHeight() - 1) + "): ");
             y = Integer.valueOf(reader.nextLine());
-            System.out.println("Enter x (0 - " + (game.getWidth() - 1) + "):");
+            System.out.print("Enter x (0 - " + (game.getWidth() - 1) + "): ");
             x = Integer.valueOf(reader.nextLine());
             System.out.println("");
 
-        } while (game.open(x, y));
+            if (command.toLowerCase().charAt(0) == 'f') {
+                game.setFlag(x, y, !game.isFlag(x, y));
+            } else if (command.toLowerCase().charAt(0) == 'o') {
+                if (game.isFlag(x, y)) {
+                    System.out.println("You cannot open a flagged square. "
+                            + "Remove flag first.");
+                } else {
+                    game.open(x, y);
+                }
+            } else {
+                System.out.println("Unknown command");
+            }
+
+        } while (game.isRunning());
 
         if (game.isVictory()) {
             System.out.println("You won the game");
@@ -45,6 +59,8 @@ public class MinesweeperTextUi {
             for (int x = 0; x < game.getWidth(); x++) {
                 if (game.isOpen(x, y)) {
                     System.out.print(game.countMines(x, y));
+                } else if (game.isFlag(x, y)) {
+                    System.out.print("F");
                 } else {
                     System.out.print("#");
                 }

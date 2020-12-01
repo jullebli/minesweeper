@@ -74,6 +74,10 @@ public class Game {
     public boolean isOpen(int x, int y) {
         return open[y][x];
     }
+    
+    public boolean isFlag(int x, int y) {
+        return flag[y][x];
+    }
 
     private void placeRandomMines(int totalMines) {
         Random r = new Random();
@@ -144,6 +148,13 @@ public class Game {
             }
         }
         return mineCount;
+    }
+    
+    public void setFlag(int x, int y, boolean placed) {
+        //sets a flag in one square, placed=true when setting a flag
+        //false when removing a flag
+        //todo?check running? open?
+        flag[y][x] = placed;      
     }
 
     private boolean isOnBoard(int x, int y) {
