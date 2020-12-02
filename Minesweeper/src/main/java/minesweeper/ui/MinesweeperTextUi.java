@@ -34,7 +34,6 @@ public class MinesweeperTextUi {
                 y = Integer.valueOf(reader.nextLine());
                 System.out.print("Enter x (0 - " + (game.getWidth() - 1) + "): ");
                 x = Integer.valueOf(reader.nextLine());
-                System.out.println("");
                 game.setFlag(x, y, !game.isFlag(x, y));
 
             } else if (command.toLowerCase().charAt(0) == 'o') {
@@ -42,12 +41,10 @@ public class MinesweeperTextUi {
                 y = Integer.valueOf(reader.nextLine());
                 System.out.print("Enter x (0 - " + (game.getWidth() - 1) + "): ");
                 x = Integer.valueOf(reader.nextLine());
-                System.out.println("");
                 
                 if (game.isFlag(x, y)) {
                     System.out.println("You cannot open a flagged square. "
                             + "Remove flag first.");
-                    System.out.println("");
                 } else {
                     game.open(x, y);
                 }
@@ -62,8 +59,8 @@ public class MinesweeperTextUi {
                 }
             } else {
                 System.out.println("Unknown command");
-                System.out.println("");
             }
+            System.out.println("");
 
         } while (game.isRunning());
 
