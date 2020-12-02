@@ -19,11 +19,11 @@ Lopullisessa sovelluksessa on graafinen käyttöliittymä. Kehitysvaiheessa käy
 
 ## Jatkokehitysideat
 
-- pelaaja voi merkitä ruutuja lipulla
+- pelaaja voi merkitä ruutuja lipulla "tehty"
 - jos pelaaja avaa ruudun, jonka ympärillä ei ole yhtään miinaa, niin peli avaa automaattisesti kaikki vieressä olevat ruudut, kunnes avatun ruudun vieressä on miina/miinoja "tehty"
 - pelaaja voi tutustua pelin sääntöihin sovelluksen sisällä
 - pelaaja voi valita eri vaikeustason uudelle pelille (easy, normal, hard jne.)
-- pelaaja voi tallentaa pelin
+- pelaaja voi tallentaa pelin "tehty"
 - pelaaja voi jatkaa tallennettua peliä  myöhemmin
 - ensimmäisellä avauksella ei voi osua miinaan
 - kun pelaaja häviää, paljastetaan miinojen sijainti
