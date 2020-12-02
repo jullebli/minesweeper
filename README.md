@@ -27,7 +27,7 @@ suoritettavan jarin generointi:
 mvn package
 ```
 
-checkstyletarkastuksen suorittaminen:
+checkstyle-tarkastuksen suorittaminen:
 ```
 mvn jxr:jxr checkstyle:checkstyle
 ```
