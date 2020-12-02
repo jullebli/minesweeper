@@ -8,4 +8,7 @@
 | 24.11  | 2      | ohjelmointia: Game, tekstikäyttöliittymä, pelin testaus: suurin osa perustoiminnallisuuksista toimii. Poistuminen tehdään vasta graafiseen käyttöliittymään    |
 | 24.11  | 2      | testejä Game-luokalle, muokkausta pom.xml. Lisätty jatkoidea: peli avaa automaattisesti viereiset nolla miinaa sisältävät ruudut   |
 | 24.11  | 4      | Checkstyle otettu käyttöön, pakkausrakenteen suunnittelu ja muokkaus, luokka- ja pakkauskaavioiden teko, arkkitehtuurikuvaus aloitettu. Yksi testi lisää ja testien debuggausta |
-|        | yht 18 |
+| 1.12   | 2      | lippujen laittamistoiminnon lisääminen |
+| 2.12   | 5      | aloitettu pelin tallentamisen toteutus, testien lisääminen, jar-package kuntoon, github release |
+|        |        | |
+|        | yht 25 | |
