@@ -1,5 +1,6 @@
 package minesweeper.ui;
 
+import java.io.IOException;
 import java.util.Scanner;
 import minesweeper.domain.Game;
 
@@ -24,25 +25,44 @@ public class MinesweeperTextUi {
 
         do {
             showBoard(game);
-            System.out.print("Enter command (o = open, f = toggle a flag): ");
+            System.out.print("Enter command (o = open, f = toggle a flag,"
+                    + " s = save game): ");
             String command = reader.nextLine();
-            System.out.print("Enter y (0 - " + (game.getHeight() - 1) + "): ");
-            y = Integer.valueOf(reader.nextLine());
-            System.out.print("Enter x (0 - " + (game.getWidth() - 1) + "): ");
-            x = Integer.valueOf(reader.nextLine());
-            System.out.println("");
 
             if (command.toLowerCase().charAt(0) == 'f') {
+                System.out.print("Enter y (0 - " + (game.getHeight() - 1) + "): ");
+                y = Integer.valueOf(reader.nextLine());
+                System.out.print("Enter x (0 - " + (game.getWidth() - 1) + "): ");
+                x = Integer.valueOf(reader.nextLine());
+                System.out.println("");
                 game.setFlag(x, y, !game.isFlag(x, y));
+
             } else if (command.toLowerCase().charAt(0) == 'o') {
+                System.out.print("Enter y (0 - " + (game.getHeight() - 1) + "): ");
+                y = Integer.valueOf(reader.nextLine());
+                System.out.print("Enter x (0 - " + (game.getWidth() - 1) + "): ");
+                x = Integer.valueOf(reader.nextLine());
+                System.out.println("");
+                
                 if (game.isFlag(x, y)) {
                     System.out.println("You cannot open a flagged square. "
                             + "Remove flag first.");
+                    System.out.println("");
                 } else {
                     game.open(x, y);
                 }
+            } else if (command.toLowerCase().charAt(0) == 's') {
+                System.out.print("Enter filename: ");
+                String fileName = reader.nextLine();
+                try {
+                    game.saveGameToFile(fileName);
+                    
+                } catch (IOException e) {
+                    System.out.println("Could not save the game: " + e);
+                }
             } else {
                 System.out.println("Unknown command");
+                System.out.println("");
             }
 
         } while (game.isRunning());

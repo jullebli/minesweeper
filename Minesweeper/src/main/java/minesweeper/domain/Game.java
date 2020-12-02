@@ -1,5 +1,9 @@
 package minesweeper.domain;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.util.Random;
 
 public class Game {
@@ -13,6 +17,8 @@ public class Game {
     private boolean[][] mine;
     private boolean[][] flag;
     private int openedSquares;
+    final String saveGameMagic = "Minesweepersavegame";
+    final int saveGameVersion = 1;
 
     private Game(int width, int height, boolean randomMines) {
         this.width = width;
@@ -159,5 +165,46 @@ public class Game {
 
     private boolean isOnBoard(int x, int y) {
         return !(x < 0 || y < 0 || x >= width || y >= height);
+    }
+    
+    private void arrayToStringBuilder(boolean[][] array, StringBuilder s) {
+        //before each array as String is width and height
+        int height = array.length;
+        int width = array[0].length;
+        s.append(height);
+        s.append("\n");
+        s.append(width);
+        s.append("\n");
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                s.append(array[y][x] ? "1" : "0");            
+            }
+            s.append("\n");
+        }
+    }
+    
+    public void saveGameToFile(String filename) throws IOException {
+        FileWriter writer = new FileWriter(filename);
+        BufferedWriter bw = new BufferedWriter(writer);
+        
+        bw.write(toString());
+        bw.close();
+    }
+
+    
+    @Override
+    public String toString() {
+        //used for saving the game
+        StringBuilder s = new StringBuilder();
+        
+        s.append(saveGameMagic);
+        s.append("\n");
+        s.append(saveGameVersion);
+        s.append("\n");
+        arrayToStringBuilder(mine, s);
+        arrayToStringBuilder(open, s);
+        arrayToStringBuilder(flag, s);
+       
+        return s.toString();
     }
 }
