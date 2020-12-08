@@ -22,15 +22,27 @@ testiraportin suoritus:
 ```
 mvn test jacoco:report
 ```
+raporttia voi tarkastella avaamalla selaimella tiedosto /target/site/jacoco/index.html
+
 suoritettavan jarin generointi:
 ```
 mvn package
 ```
+generoi hakemistoon target suoritettavan jar-tiedoston Minesweeper-1.0-SNAPSHOT.jar
+
 
 checkstyle-tarkastuksen suorittaminen:
 ```
 mvn jxr:jxr checkstyle:checkstyle
 ```
+Virheilmoituksia voi tarkastella avaamalla selaimella tiedoston target/site/checkstyle.html
+
+
+javaDocin generointi:
+```
+mvn javadoc:javadoc
+```
+JavaDocia voi tarkastella avaamalla selaimella tiedosto /target/site/apidocs/index.html
 
 
 ## Dokumentaatio
@@ -47,3 +59,4 @@ mvn jxr:jxr checkstyle:checkstyle
 ## Releaset
 
 [Viikon 5 release](https://github.com/jullebli/ot-harjoitustyo/releases/tag/viikko5)
+[Viikon 6 release]()
