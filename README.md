@@ -41,6 +41,8 @@ mvn jxr:jxr checkstyle:checkstyle
 
 [Arkkitehtuurikuvaus](https://github.com/jullebli/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
+[Käyttöohje](https://github.com/jullebli/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
+
 
 ## Releaset
 
