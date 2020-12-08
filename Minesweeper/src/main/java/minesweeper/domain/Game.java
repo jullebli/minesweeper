@@ -56,6 +56,9 @@ public class Game {
                     totalMines++;
                     mine[y][x] = true;
                 }
+                if (mineMap[y].charAt(x) == 'F') {
+                    flag[y][x] = true;
+                }
             }
         }
 
@@ -197,7 +200,7 @@ public class Game {
     }
 
     /**
-     * Checks if the square is on the gameboard, within height and width of
+     * Checks if the square is on the game board, within height and width of
      * the board
      * 
      * @param x x coordinate of a square
