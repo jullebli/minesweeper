@@ -159,7 +159,7 @@ public class Game {
     public void setFlag(int x, int y, boolean placed) {
         //sets a flag in one square, placed=true when setting a flag
         //false when removing a flag
-        //todo?check running? open?
+        //todo? check running? open?
         flag[y][x] = placed;      
     }
 
@@ -169,14 +169,14 @@ public class Game {
     
     private void arrayToStringBuilder(boolean[][] array, StringBuilder s) {
         //before each array as String is width and height
-        int height = array.length;
-        int width = array[0].length;
-        s.append(height);
+        int h = array.length;
+        int w = array[0].length;
+        s.append(h);
         s.append("\n");
-        s.append(width);
+        s.append(w);
         s.append("\n");
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
+        for (int y = 0; y < h; y++) {
+            for (int x = 0; x < w; x++) {
                 s.append(array[y][x] ? "1" : "0");            
             }
             s.append("\n");
