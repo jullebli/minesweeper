@@ -69,6 +69,11 @@ public class Game {
         return height;
     }
 
+    /**
+     * Returns if the game is still running.
+     * 
+     * @return true if game is running, false otherwise
+     */
     public boolean isRunning() {
         return running;
     }
@@ -85,6 +90,11 @@ public class Game {
         return flag[y][x];
     }
 
+    /**
+     * Places mines randomly on the minefield.
+     * 
+     * @param totalMines number of mines to place
+     */
     private void placeRandomMines(int totalMines) {
         Random r = new Random();
 
@@ -100,6 +110,14 @@ public class Game {
         }
     }
 
+    /**
+     * Opens a square on the minefield
+     * 
+     * @param x x coordinate of the square
+     * @param y y coordinate of the square
+     * 
+     * @return true if game is running, false otherwise
+     */
     public boolean open(int x, int y) {
         if (open[y][x]) {
             return running;
@@ -140,6 +158,14 @@ public class Game {
         }
     }
 
+    /**
+     * Counts the mines in the neighbouring squares of a square.
+     * 
+     * @param x x coordinate of a square
+     * @param y y coordinate of a square
+     * 
+     * @return number of mines in the neighbouring squares
+     */
     public int countMines(int x, int y) {
         //count mines in neighbouring squares
         int mineCount = 0;
@@ -156,6 +182,13 @@ public class Game {
         return mineCount;
     }
     
+    /**
+     * Sets a flag in one square.
+     * 
+     * @param x x coordinate of a square
+     * @param y y coordinate of a square
+     * @param placed true when setting a flag, false when removing a flag
+     */
     public void setFlag(int x, int y, boolean placed) {
         //sets a flag in one square, placed=true when setting a flag
         //false when removing a flag
@@ -163,10 +196,26 @@ public class Game {
         flag[y][x] = placed;      
     }
 
+    /**
+     * Checks if the square is on the gameboard, within height and width of
+     * the board
+     * 
+     * @param x x coordinate of a square
+     * @param y y coordinate of a square
+     * 
+     * @return true if square is on board, false if square is not on board
+     */
     private boolean isOnBoard(int x, int y) {
         return !(x < 0 || y < 0 || x >= width || y >= height);
     }
     
+    /**
+     * Forms a StringBuilder type variable from a 2-dimensional boolean
+     * array.
+     * 
+     * @param array 2-dimensional boolean array
+     * @param s StringBuilder type variable that will be appended
+     */
     private void arrayToStringBuilder(boolean[][] array, StringBuilder s) {
         //before each array as String is width and height
         int h = array.length;
@@ -183,6 +232,13 @@ public class Game {
         }
     }
     
+    /**
+     * Saves the game by writing it to a file where it can be read from later.
+     * 
+     * @param filename name of the file where the saved game will be written
+     * 
+     * @throws IOException throws exception if writing to the file fails
+     */
     public void saveGameToFile(String filename) throws IOException {
         FileWriter writer = new FileWriter(filename);
         BufferedWriter bw = new BufferedWriter(writer);
