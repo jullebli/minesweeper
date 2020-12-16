@@ -1,15 +1,17 @@
 package minesweeper.domain;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Random;
 
 public class Game {
 
-    private final int width;
-    private final int height;
+    private int width;
+    private int height;
     private int totalMines;
     private boolean running;
     private boolean victory;
@@ -20,54 +22,48 @@ public class Game {
     final String saveGameMagic = "Minesweepersavegame";
     final int saveGameVersion = 1;
 
-    private Game(int width, int height, String[] mineMap) {
-        if (mineMap != null) {
-            width = mineMap.length;
-            height = mineMap[0].length();
-        }
-        this.width = width;
-        this.height = height;
+    private Game(int width, int height, String[] mineMap, String filename) throws
+            IOException {
 
         this.running = true;
         this.victory = false;
-        this.open = new boolean[height][width];
-        this.mine = new boolean[height][width];
-        this.flag = new boolean[height][width];
-
         this.openedSquares = 0;
+        
+        if (width > 0) {
+            this.width = width;
+            this.height = height;
+            this.open = new boolean[height][width];
+            this.mine = new boolean[height][width];
+            this.flag = new boolean[height][width];
+            
+            placeRandomMines(10);
 
-        if (mineMap != null) {
-            totalMines = 0;
+        } else if (filename != null) {
+            loadGame(filename);
 
-            for (int y = 0; y < getHeight(); y++) {
-                for (int x = 0; x < getWidth(); x++) {
-                    if (mineMap[y].charAt(x) == 'M') {
-                        totalMines++;
-                        mine[y][x] = true;
-                    }
-                    if (mineMap[y].charAt(x) == 'F') {
-                        flag[y][x] = true;
-                    }
-                }
-            }
-
-        } else {
-            this.totalMines = 10;
-            placeRandomMines(totalMines);
-
+        } else if (mineMap != null) {
+            loadTestData(mineMap);
         }
+
+        this.totalMines = countTrueValues(this.mine);
+        this.openedSquares = countTrueValues(this.open);
     }
 
-    public Game(int width, int height) {
+    public Game(int width, int height) throws IOException {
         //create Game with randomized mine locations
-        this(width, height, null);
+        this(width, height, null, null);
     }
 
-    public Game(String[] mineMap) {
+    public Game(String[] mineMap) throws IOException {
         //create Game with String array given mine locations
         //for test purposes only!
-        this(0, 0, mineMap);
+        this(0, 0, mineMap, null);
 
+    }
+
+    public Game(String filename) throws IOException {
+        //create Game loading from a file
+        this(0, 0, null, filename);
     }
 
     public int getWidth() {
@@ -253,6 +249,79 @@ public class Game {
 
         bw.write(toString());
         bw.close();
+    }
+
+    private void loadTestData(String[] array) {
+        int h = array.length;
+        int w = array[0].length();
+
+        this.height = h;
+        this.width = w;
+        this.mine = new boolean[h][w];
+        this.flag = new boolean[h][w];
+        this.open = new boolean[h][w];
+
+        for (int y = 0; y < h; y++) {
+            for (int x = 0; x < w; x++) {
+                if (array[y].charAt(x) == 'M') {
+                    mine[y][x] = true;
+                }
+                if (array[y].charAt(x) == 'F') {
+                    flag[y][x] = true;
+                }
+            }
+        }
+    }
+
+    private boolean[][] loadArray(BufferedReader br) throws IOException {
+        int h = Integer.valueOf(br.readLine());
+        int w = Integer.valueOf(br.readLine());
+
+        boolean[][] array = new boolean[h][w];
+
+        for (int y = 0; y < h; y++) {
+            String line = br.readLine();
+            for (int x = 0; x < w; x++) {
+                array[y][x] = line.charAt(x) == '1';
+            }
+        }
+
+        return array;
+    }
+
+    private void loadGame(String filename) throws IOException {
+        FileReader reader = new FileReader(filename);
+        BufferedReader br = new BufferedReader(reader);
+
+        String magic = br.readLine();
+        if (!magic.equals(saveGameMagic)) {
+            throw new IOException("Not a minesweeper file");
+        }
+        int version = Integer.valueOf(br.readLine());
+        if (version != saveGameVersion) {
+            throw new IOException("Unsupported minesweeper game version");
+        }
+        this.mine = loadArray(br);
+        this.open = loadArray(br);
+        this.flag = loadArray(br);
+
+        this.height = mine.length;
+        this.width = mine[0].length;
+
+        br.close();
+    }
+
+    private int countTrueValues(boolean[][] array) {
+        //counts true values in an array
+        int count = 0;
+        for (int y = 0; y < array.length; y++) {
+            for (int x = 0; x < array[0].length; x++) {
+                if (array[y][x]) {
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 
     @Override

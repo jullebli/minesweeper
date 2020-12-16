@@ -13,20 +13,26 @@ public class MinesweeperTextUi {
     }
 
     public void start() {
-        System.out.println("Enter height: ");
+        System.out.print("Enter height: ");
         int height = Integer.valueOf(reader.nextLine());
-        System.out.println("Enter width: ");
+        System.out.print("Enter width: ");
         int width = Integer.valueOf(reader.nextLine());
         System.out.println("");
 
-        Game game = new Game(width, height);
+        Game game;
+        try {
+        game = new Game(width, height);
+        } catch (IOException e) {
+            System.out.println("Failed to start the game: " + e);
+            return;
+        }
 
         int x, y;
 
         do {
             showBoard(game);
             System.out.print("Enter command (o = open, f = toggle a flag,"
-                    + " s = save game): ");
+                    + " s = save game, l = load game): ");
             String command = reader.nextLine();
 
             if (command.toLowerCase().charAt(0) == 'f') {
@@ -57,6 +63,15 @@ public class MinesweeperTextUi {
                 } catch (IOException e) {
                     System.out.println("Could not save the game: " + e);
                 }
+            } else if (command.toLowerCase().charAt(0) == 'l') {
+                System.out.print("Enter name of the game file: ");
+                String filename = reader.nextLine();
+                try {
+                    game = new Game(filename);
+                    
+                } catch (IOException e) {
+                    System.out.println("Could not load the game: " + e);
+                } 
             } else {
                 System.out.println("Unknown command");
             }
