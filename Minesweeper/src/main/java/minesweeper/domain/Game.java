@@ -186,6 +186,7 @@ public class Game {
         }
         return mineCount;
     }
+    
 
     /**
      * Sets a flag in one square.

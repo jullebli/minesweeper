@@ -1,5 +1,6 @@
 package minesweeper.domain;
 
+import java.io.IOException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,7 +11,7 @@ public class MinesweeperGameTest {
     private Game game;
 
     @Before
-    public void setUp() {
+    public void setUp() throws IOException {
 
         game = new Game(new String[]{
             "...M.MMM",
