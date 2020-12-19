@@ -6,7 +6,7 @@ Sovelluksen avulla pelaaja voi pelata miinaharavapeliä. Pelissä on tarkoitus a
 ## Komentorivikomennot:
 
 
-Koodin pystyy suorittamaan Netbeansissä ja Minesweeper-alihakemistossa komennolla: 
+Koodin pystyy suorittamaan Netbeansissä ja Minesweeper-alihakemistossa komennolla:
 ```
 mvn compile exec:java -Dexec.mainClass=minesweeper.ui.MinesweeperTextUi
 ```
@@ -50,8 +50,12 @@ javaDocin generointi:
 ```
 mvn javadoc:javadoc
 ```
-JavaDocia voi tarkastella avaamalla selaimella tiedosto /target/site/apidocs/index.html
+JavaDocia voi tarkastella avaamalla selaimella tiedosto target/site/apidocs/index.html
 
+Huomaa, että komennon ajaminen saattaa vaatia JAVA_HOME-ympäristömuuttujan asettamisen, esimerkiksi seuraavasti: 
+```
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+```
 
 
 ## Dokumentaatio

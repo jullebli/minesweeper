@@ -2,28 +2,27 @@
 
 ## Sovelluksen tarkoitus
 
-Sovelluksen avulla pelaaja voi pelata miinaharavapeliä. Pelissä on tarkoitus avata kaikki muut ruudut kuin ne joissa on miina. Pelaaja voittaa pelin, kun kaikki ruudut paitsi ne joissa on miinoja on avattu. Pelaaja häviää pelin jos hän yrittää avata ruutua, jossa on miina. Jos avatun ruudun viereisissä ruuduissa on miinoja, niin ruutuun tulee luku, joka kuvastaa montako miinaa sen viereisissä ruuduissa on yhteensä.
+Sovelluksen avulla pelaaja voi pelata miinaharavapeliä. Pelissä on tarkoitus avata kaikki muut ruudut kuin ne joissa on miina. Pelaaja voittaa pelin, kun kaikki ruudut paitsi ne, joissa on miinoja, on avattu. Pelaaja häviää pelin, jos hän yrittää avata ruutua, jossa on miina. Jos avatun ruudun viereisissä ruuduissa on miinoja, niin ruutuun tulee luku, joka kuvastaa montako miinaa sen viereisissä ruuduissa on yhteensä. Pelaaja voi tallentaa pelin tiedostoon ja jatkaa sen pelaamista myöhemmin.
 
-Lopullisessa sovelluksessa on graafinen käyttöliittymä. Kehitysvaiheessa käytetään tekstikäyttöliittymää.
+Sovellus käyttää graafista käyttöliittymää, mutta kehityksen aikainen tekstikäyttöliittymä on sovelluksessa mukana.
 
 
 ## Suunnitellut toiminnallisuudet perusversioon
 
-- pelaaja voi aloittaa uuden pelin "tehty"
-  - pelaaja voi valita kentän koon "tehty"
-- pelaaja voi avata ruutuja "tehty"
+- pelaaja voi aloittaa uuden pelin
+  - pelaaja voi valita kentän koon
+- pelaaja voi avata ruutuja
 - pelaaja voi poistua pelistä
-- tekstikäyttöliittymä kehitykseen "tehty"
-- graafinen käyttöliittymä
-
+- tekstikäyttöliittymä kehitykseen
+- graafinen käyttöliittymä pelaamiseen
+- pelaaja voi merkitä ruutuja lipulla
+- jos pelaaja avaa ruudun, jonka ympärillä ei ole yhtään miinaa, niin peli avaa automaattisesti kaikki vieressä olevat ruudut, kunnes avatun ruudun vieressä on miina/miinoja
+- pelaaja voi tallentaa pelin
+- pelaaja voi jatkaa tallennettua peliä myöhemmin
+- kun pelaaja häviää, paljastetaan miinojen sijainti
 
 ## Jatkokehitysideat
 
-- pelaaja voi merkitä ruutuja lipulla "tehty"
-- jos pelaaja avaa ruudun, jonka ympärillä ei ole yhtään miinaa, niin peli avaa automaattisesti kaikki vieressä olevat ruudut, kunnes avatun ruudun vieressä on miina/miinoja "tehty"
 - pelaaja voi tutustua pelin sääntöihin sovelluksen sisällä
 - pelaaja voi valita eri vaikeustason uudelle pelille (easy, normal, hard jne.)
-- pelaaja voi tallentaa pelin "tehty"
-- pelaaja voi jatkaa tallennettua peliä  myöhemmin
 - ensimmäisellä avauksella ei voi osua miinaan
-- kun pelaaja häviää, paljastetaan miinojen sijainti

@@ -12,4 +12,7 @@
 | 2.12   | 5      | aloitettu pelin tallentamisen toteutus, testien lisääminen, jar-package kuntoon, github release |
 | 8.12   | 3      | javafx:n opettelua, aloitettu graafisen käyttöliittymän teko|
 | 8.12   | 3      | graafisen käyttöliittymän tekoa, aloitettu javadoc, käyttöohje tehty, muokattu README, testejä lisää |
-|        | yht 31 | |
+| 16.12  | 3      | pelin lataamisominaisuus, konstruktorien muokkaamista |
+| 18.12  | 6      | lisää javadocia, graafinen käyttöliittymän muokkaamista |
+| 19.12  | 2      | graafisen käyttöliittymän muokkaamista (save, load, startover, miinat näkyviin hävittäessä). |
+| 19.12  |       |  |
