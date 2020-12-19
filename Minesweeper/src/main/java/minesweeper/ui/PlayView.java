@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
 import javafx.application.Platform;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -15,6 +14,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import minesweeper.domain.Game;
@@ -58,6 +58,7 @@ public class PlayView {
         });
 
         Button saveGame = new Button("Save game");
+        Label saveStatus = new Label("");
         saveGame.setOnAction(event -> {
             FileChooser fileChooser = new FileChooser();
             FileChooser.ExtensionFilter formatFilter
@@ -70,15 +71,18 @@ public class PlayView {
                 return;
             }
 
-            String fileName = selectedFile.getName();
+            String fileName = selectedFile.getAbsolutePath();
             if (!fileName.endsWith(Game.SAVEGAME_EXTENSION)) {
                 fileName += Game.SAVEGAME_EXTENSION;
             }
 
             try {
                 game.saveGameToFile(fileName);
+                saveStatus.setText("Succesfully saved the game.");
+                saveStatus.setTextFill(Color.GREEN);
             } catch (IOException e) {
-                System.out.println("Could not save the game");
+                saveStatus.setText("Could not save the game: " + e.getMessage());
+                saveStatus.setTextFill(Color.RED);
             }
         });
 
@@ -104,7 +108,8 @@ public class PlayView {
         saveGame.setMaxWidth(Double.MAX_VALUE);
         quit.setMaxWidth(Double.MAX_VALUE);
 
-        rightPane.getChildren().addAll(gameStatus, startOver, saveGame, quit);
+        rightPane.getChildren().addAll(gameStatus, startOver, saveGame, quit,
+                saveStatus);
 
         root.setCenter(minefield);
         root.setRight(rightPane);
