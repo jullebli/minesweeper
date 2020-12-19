@@ -25,6 +25,18 @@ public class MinesweeperGameTest {
     }
 
     @Test
+    public void heightIsCorrect() throws IOException {
+        Game game2 = new Game(8, 10);
+        assertEquals(game2.getHeight(), 10);
+    }
+
+    @Test
+    public void widthIsCorrect() throws IOException {
+        Game game2 = new Game(8, 10);
+        assertEquals(game2.getWidth(), 8);
+    }
+
+    @Test
     public void heightIs8() {
         assertEquals(game.getHeight(), 8);
     }
