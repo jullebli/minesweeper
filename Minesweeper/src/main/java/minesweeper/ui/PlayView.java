@@ -14,6 +14,7 @@ public class PlayView {
     private Game game;
     private Button[][] buttons;
     private Label gameStatus;
+    private StartOverEventHandler startOverHandler;
 
     public PlayView(Game game) {
         this.game = game;
@@ -27,8 +28,12 @@ public class PlayView {
         VBox rightPane = new VBox();
 
         gameStatus = new Label("");
+        Button startOver = new Button("Start over");
+        startOver.setOnAction(event -> {
+            startOverHandler.handle(new StartOverEvent());
+        });
 
-        rightPane.getChildren().add(gameStatus);
+        rightPane.getChildren().addAll(gameStatus, startOver);
 
         root.setCenter(minefield);
         root.setRight(rightPane);
@@ -63,6 +68,7 @@ public class PlayView {
 
     private void updateView() {
         if (!game.isRunning()) {
+            
             if (game.isVictory()) {
                 gameStatus.setText("You won the game!");
             } else {
@@ -88,5 +94,9 @@ public class PlayView {
                 buttons[y][x].setText(label);
             }
         }
+    }
+    
+    public void setOnStartOver(StartOverEventHandler handler) {
+        this.startOverHandler = handler;
     }
 }
