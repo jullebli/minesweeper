@@ -19,7 +19,7 @@ public class MinesweeperUi extends Application {
         root.setCenter(setup.getView());
         setup.setOnSetupComplete(event -> {
             
-            PlayView play = new PlayView(event.getGame());
+            PlayView play = new PlayView(event.getGame(), window);
             play.setOnStartOver(event2 -> {
                 root.setCenter(setup.getView());
             });

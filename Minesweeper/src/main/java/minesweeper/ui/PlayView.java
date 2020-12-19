@@ -1,5 +1,7 @@
 package minesweeper.ui;
 
+import java.io.File;
+import java.io.IOException;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -7,6 +9,8 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import minesweeper.domain.Game;
 
 public class PlayView {
@@ -15,10 +19,12 @@ public class PlayView {
     private Button[][] buttons;
     private Label gameStatus;
     private StartOverEventHandler startOverHandler;
+    private Stage stage;
 
-    public PlayView(Game game) {
+    public PlayView(Game game, Stage stage) {
         this.game = game;
         this.buttons = new Button[game.getHeight()][game.getWidth()];
+        this.stage = stage;
     }
 
     public Parent getView() {
@@ -33,7 +39,22 @@ public class PlayView {
             startOverHandler.handle(new StartOverEvent());
         });
 
-        rightPane.getChildren().addAll(gameStatus, startOver);
+        Button saveGame = new Button("Save game");
+        saveGame.setOnAction(event -> {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Open Minesweeper saved game");
+            File selectedFile = fileChooser.showSaveDialog(stage);
+            if (selectedFile == null) {
+                return;
+            }
+            try {
+                game.saveGameToFile(selectedFile.getName());
+            } catch (IOException e) {
+                System.out.println("Could not save the game");
+            }
+        });
+
+        rightPane.getChildren().addAll(gameStatus, startOver, saveGame);
 
         root.setCenter(minefield);
         root.setRight(rightPane);
@@ -68,7 +89,7 @@ public class PlayView {
 
     private void updateView() {
         if (!game.isRunning()) {
-            
+
             if (game.isVictory()) {
                 gameStatus.setText("You won the game!");
             } else {
@@ -95,7 +116,7 @@ public class PlayView {
             }
         }
     }
-    
+
     public void setOnStartOver(StartOverEventHandler handler) {
         this.startOverHandler = handler;
     }
