@@ -5,7 +5,9 @@ import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Random;
+import javafx.util.Pair;
 
 public class Game {
 
@@ -204,18 +206,25 @@ public class Game {
         return running;
     }
 
+    private ArrayList<Pair<Integer, Integer>> neigbourCoordinates(int x, int y) {
+        ArrayList<Pair<Integer, Integer>> coordinates = new ArrayList<>();
+        int[][] neighbours = {{-1, -1}, {-1, 0}, {-1, 1}, {0, 1}, {1, 1}, {1, 0},
+        {1, -1}, {0, -1}};
+
+        for (int i = 0; i < 8; i++) {
+            int nY = y + neighbours[i][0];
+            int nX = x + neighbours[i][1];
+            if (isOnBoard(nX, nY)) {
+                coordinates.add(new Pair(nX, nY));
+            }
+        }
+        return coordinates;
+    }
+
     private void openNeighbouringSquares(int x, int y) {
         if (countMines(x, y) == 0) {
-            // if 0 mines, go through neigbouring squares
-            int[][] neighbours = {{-1, -1}, {-1, 0}, {-1, 1}, {0, 1}, {1, 1},
-                                  {1, 0}, {1, -1}, {0, -1}};
-
-            for (int i = 0; i < 8; i++) {
-                int nY = y + neighbours[i][0];
-                int nX = x + neighbours[i][1];
-                if (isOnBoard(nX, nY)) {
-                    open(nX, nY);
-                }
+            for (Pair<Integer, Integer> pair : neigbourCoordinates(x, y)) {
+                open(pair.getKey(), pair.getValue());
             }
         }
     }
@@ -229,15 +238,9 @@ public class Game {
      * @return number of mines in the neighbouring squares
      */
     public int countMines(int x, int y) {
-        //count mines in neighbouring squares
         int mineCount = 0;
-        int[][] neighbours = {{-1, -1}, {-1, 0}, {-1, 1}, {0, 1}, {1, 1},
-                              {1, 0}, {1, -1}, {0, -1}};
-
-        for (int i = 0; i < 8; i++) {
-            int nY = y + neighbours[i][0];
-            int nX = x + neighbours[i][1];
-            if (isOnBoard(nX, nY) && mine[nY][nX]) {
+        for (Pair<Integer, Integer> pair : neigbourCoordinates(x, y)) {
+            if (mine[pair.getValue()][pair.getKey()]) {
                 mineCount++;
             }
         }
@@ -363,9 +366,9 @@ public class Game {
     }
 
     /**
-     * Returns state of the game as a String. 
-     * Is used mainly for saving the game.
-     * 
+     * Returns state of the game as a String. Is used mainly for saving the
+     * game.
+     *
      * @return game state as a String
      */
     @Override
