@@ -1,24 +1,18 @@
 
 package minesweeper.ui;
 
+import minesweeper.domain.Game;
+
 
 public class SetupCompleteEvent {
     
-    private final int height;
-    private final int width;
+    private Game game;
     
-    public SetupCompleteEvent(int width, int height) {
-        this.width = width;
-        this.height = height;
+    public SetupCompleteEvent(Game game) {
+        this.game = game;
     }
 
-    public int getHeight() {
-        return height;
+    public Game getGame() {
+        return game;
     }
-
-    public int getWidth() {
-        return width;
-    }
-    
-    
 }

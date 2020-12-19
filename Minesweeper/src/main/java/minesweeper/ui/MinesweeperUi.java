@@ -19,12 +19,6 @@ import minesweeper.domain.Game;
 
 public class MinesweeperUi extends Application {
 
-    /*
-    @Override
-    public void init() throws Exception {
-        Game game = new Game();
-    }
-     */
     @Override
     public void start(Stage window) {
 
@@ -35,48 +29,14 @@ public class MinesweeperUi extends Application {
         //root.setCenter(play.getView());
         root.setCenter(setup.getView());
         setup.setOnSetupComplete(event -> {
-            Game game;
-            try {
-                game = new Game(event.getWidth(), event.getHeight());
-            } catch (IOException e) {
-                System.out.println("Exception " + e);
-                return;
-            }
-
-            PlayView play = new PlayView(game);
+            
+            PlayView play = new PlayView(event.getGame());
             root.setCenter(play.getView());
         });
 
         Scene scene = new Scene(root, 600, 700, Color.GREY);
 
-        // window.setTitle("MINESWEEPER");
-
-        /*  MenuBar menuBar = new MenuBar();
-        root.setTop(menuBar);
-        menuBar.prefWidthProperty().bind(window.widthProperty());
-
-        Menu fileMenu = new Menu("File");
-        MenuItem newMI = new MenuItem("New");
-        MenuItem loadMI = new MenuItem("Load");
-        MenuItem saveMI = new MenuItem("Save");
-        MenuItem exitMI = new MenuItem("Exit");
-        
-        
-        
-        exitMI.setOnAction(actionEvent -> Platform.exit());
-        
-        
-        fileMenu.getItems().addAll(newMI, loadMI, saveMI, exitMI);
-
-        Menu helpMenu = new Menu("Help");
-        MenuItem rulesIM = new MenuItem("Rules");
-        MenuItem aboutIM = new MenuItem("About minesweeper");
-        //leads to wkipedia page about minesweeper
-        helpMenu.getItems().addAll(rulesIM, aboutIM);
-
-        menuBar.getMenus().addAll(fileMenu, helpMenu);
-         */
-        //root.setLeft(vbox);
+        window.setTitle("Minesweeper");
         window.setScene(scene);
         window.show();
     }

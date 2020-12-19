@@ -1,5 +1,6 @@
 package minesweeper.ui;
 
+import java.io.IOException;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -7,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import minesweeper.domain.Game;
 
 public class SetupView {
 
@@ -20,7 +22,7 @@ public class SetupView {
         HBox hboxHeight = new HBox();
         HBox hboxWidth = new HBox();
 
-        Label label = new Label("Select size of the minefield");
+        Label label = new Label("Select size of the minefield:");
         Label widthLabel = new Label("Width:");
         Label heightLabel = new Label("Height:");
         TextField width = new TextField("10");
@@ -33,9 +35,16 @@ public class SetupView {
         start.setOnAction(event -> {
             int playWidth = Integer.valueOf(width.getText());
             int playHeight = Integer.valueOf(height.getText());
+            
+            Game game;
+            try {
+                game = new Game(playWidth, playHeight);
+            } catch (IOException e) {
+                System.out.println("Exception " + e);
+                return;
+            }
 
-            setupCompleteHandler.handle(new SetupCompleteEvent(playWidth,
-                    playHeight));
+            setupCompleteHandler.handle(new SetupCompleteEvent(game));
         });
 
         vbox.getChildren().add(label);
