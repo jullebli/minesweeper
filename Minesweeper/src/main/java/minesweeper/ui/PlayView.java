@@ -43,13 +43,23 @@ public class PlayView {
         Button saveGame = new Button("Save game");
         saveGame.setOnAction(event -> {
             FileChooser fileChooser = new FileChooser();
+            FileChooser.ExtensionFilter formatFilter
+                    = new FileChooser.ExtensionFilter("Minesweeper saved game",
+                            "*" + Game.SAVEGAME_EXTENSION);
+            fileChooser.getExtensionFilters().add(formatFilter);
             fileChooser.setTitle("Open Minesweeper saved game");
             File selectedFile = fileChooser.showSaveDialog(stage);
             if (selectedFile == null) {
                 return;
             }
+
+            String fileName = selectedFile.getName();
+            if (!fileName.endsWith(Game.SAVEGAME_EXTENSION)) {
+                fileName += Game.SAVEGAME_EXTENSION;
+            }
+
             try {
-                game.saveGameToFile(selectedFile.getName());
+                game.saveGameToFile(fileName);
             } catch (IOException e) {
                 System.out.println("Could not save the game");
             }

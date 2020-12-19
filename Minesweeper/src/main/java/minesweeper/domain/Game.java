@@ -21,6 +21,7 @@ public class Game {
     private int openedSquares;
     final String saveGameMagic = "Minesweepersavegame";
     final int saveGameVersion = 1;
+    public static final String SAVEGAME_EXTENSION = ".minesave";
 
     private Game(int width, int height, String[] mineMap, String filename) throws
             IOException {

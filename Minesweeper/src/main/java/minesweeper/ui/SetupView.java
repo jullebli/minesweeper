@@ -38,6 +38,10 @@ public class SetupView {
         Button loadGame = new Button("Load saved game");
         loadGame.setOnAction(event -> {
             FileChooser fileChooser = new FileChooser();
+            FileChooser.ExtensionFilter formatFilter
+                    = new FileChooser.ExtensionFilter("Minesweeper saved game",
+                            "*" + Game.SAVEGAME_EXTENSION);
+            fileChooser.getExtensionFilters().add(formatFilter);
             fileChooser.setTitle("Open Minesweeper saved game");
             File selectedFile = fileChooser.showOpenDialog(stage);
             if (selectedFile == null) {
