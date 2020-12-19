@@ -129,7 +129,7 @@ public class Game {
      * @return true if square has a mine, false otherwise
      */
     public boolean isMine(int x, int y) {
-        return mine[x][y];
+        return mine[y][x];
     }
 
     /**

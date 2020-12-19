@@ -27,12 +27,11 @@ public class PlayView {
         VBox rightPane = new VBox();
 
         gameStatus = new Label("");
-        
+
         rightPane.getChildren().add(gameStatus);
-        
+
         root.setCenter(minefield);
         root.setRight(rightPane);
-        
 
         for (int y = 0; y < game.getHeight(); y++) {
             for (int x = 0; x < game.getWidth(); x++) {
@@ -64,8 +63,11 @@ public class PlayView {
 
     private void updateView() {
         if (!game.isRunning()) {
-            gameStatus.setText("GAME OVER. "+ "\n" + "You stepped on a mine.");
-            return;
+            if (game.isVictory()) {
+                gameStatus.setText("You won the game!");
+            } else {
+                gameStatus.setText("GAME OVER.\nYou stepped on a mine.");
+            }
         }
         for (int y = 0; y < game.getHeight(); y++) {
             for (int x = 0; x < game.getWidth(); x++) {
@@ -79,6 +81,9 @@ public class PlayView {
                     }
                 } else if (game.isFlag(x, y)) {
                     label = "F";
+                }
+                if (!game.isRunning() && game.isMine(x, y)) {
+                    label = "*";
                 }
                 buttons[y][x].setText(label);
             }
