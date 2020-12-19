@@ -20,6 +20,7 @@ public class Game {
     private boolean[][] mine;
     private boolean[][] flag;
     private int openedSquares;
+    private static final double MINE_DENSITY = 0.1;
     final String saveGameMagic = "Minesweepersavegame";
     final int saveGameVersion = 1;
     /**
@@ -41,7 +42,7 @@ public class Game {
             this.mine = new boolean[height][width];
             this.flag = new boolean[height][width];
 
-            placeRandomMines(10);
+            placeRandomMines((int)Math.ceil(width * height * MINE_DENSITY));
 
         } else if (filename != null) {
             loadGame(filename);
