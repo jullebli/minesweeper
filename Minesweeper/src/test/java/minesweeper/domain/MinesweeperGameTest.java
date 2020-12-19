@@ -1,7 +1,6 @@
 package minesweeper.domain;
 
 import java.io.IOException;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -34,6 +33,16 @@ public class MinesweeperGameTest {
     public void widthIs8() {
         assertEquals(game.getWidth(), 8);
     }
+    
+    @Test
+    public void isMineWorks() {
+        assertTrue(game.isMine(3, 5));
+    }
+    
+    @Test
+    public void isMineIsFalseWhenNoMine() {
+        assertFalse(game.isMine(0, 0));
+    }
 
     @Test
     public void whenRunningThenIsRunningReturnsTrue() {
@@ -42,8 +51,14 @@ public class MinesweeperGameTest {
 
     @Test
     public void whenOpensMineThenIsRunningReturnsFalse() {
-        game.open(3, 5); //has a mine x = 3, y = 5
+        game.open(3, 5);
         assertFalse(game.isRunning());
+    }
+    
+    @Test
+    public void whenOpensMineThenVictoryIsFalse() {
+        game.open(3, 5);
+        assertFalse(game.isVictory());
     }
 
     @Test
@@ -61,6 +76,22 @@ public class MinesweeperGameTest {
     @Test
     public void victoryIsFalseInTheBeginning() {
         assertFalse(game.isVictory());
+    }
+    
+    @Test
+    public void victoryIsPossible() {
+        game.open(0, 0);
+        game.open(6, 1);
+        game.open(4, 0);
+        assertTrue(game.isVictory());
+    }
+    
+    @Test
+    public void victoryEndsTheGame() {
+        game.open(0, 0);
+        game.open(6, 1);
+        game.open(4, 0);
+        assertFalse(game.isRunning());
     }
 
     @Test
@@ -83,6 +114,15 @@ public class MinesweeperGameTest {
     public void setFlagWorks() {
         game.setFlag(3, 3, true);
         assertTrue(game.isFlag(3, 3));
+    }
+    
+    @Test
+    public void saveAndLoadWorks() throws IOException {
+        String filename = "junitTest.minesave"; 
+               
+        game.saveGameToFile(filename);
+        Game game2 = new Game(filename);
+        assertEquals(game.toString(), game2.toString());
     }
 
     @Test
