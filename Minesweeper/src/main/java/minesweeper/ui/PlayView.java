@@ -2,6 +2,7 @@ package minesweeper.ui;
 
 import java.io.File;
 import java.io.IOException;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -62,6 +63,7 @@ public class PlayView {
         for (int y = 0; y < game.getHeight(); y++) {
             for (int x = 0; x < game.getWidth(); x++) {
                 Button b = new Button();
+                b.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
                 final int x2 = x;
                 final int y2 = y;
                 b.setOnMouseClicked((event) -> {
