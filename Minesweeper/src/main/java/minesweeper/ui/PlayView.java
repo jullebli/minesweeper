@@ -2,9 +2,14 @@ package minesweeper.ui;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Optional;
+import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.BorderPane;
@@ -37,6 +42,18 @@ public class PlayView {
         gameStatus = new Label("");
         Button startOver = new Button("Start over");
         startOver.setOnAction(event -> {
+            if (game.isRunning()) {
+                Alert alert = new Alert(AlertType.CONFIRMATION);
+                alert.setTitle("Minesweeper");
+                alert.setHeaderText("You are about to start a new game but "
+                        + "the current game is still running");
+                alert.setContentText("Are you sure?");
+
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() != ButtonType.OK) {
+                    return;
+                }
+            }
             startOverHandler.handle(new StartOverEvent());
         });
 
@@ -65,7 +82,29 @@ public class PlayView {
             }
         });
 
-        rightPane.getChildren().addAll(gameStatus, startOver, saveGame);
+        Button quit = new Button("Quit");
+        quit.setOnAction(event -> {
+            if (game.isRunning()) {
+                Alert alert = new Alert(AlertType.CONFIRMATION);
+                alert.setTitle("Minesweeper");
+                alert.setHeaderText("You are about to quit the game but it "
+                        + "is still running");
+                alert.setContentText("Are you sure?");
+
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() != ButtonType.OK) {
+                    return;
+                }
+            }
+            Platform.exit();
+        });
+
+        gameStatus.setMaxWidth(Double.MAX_VALUE);
+        startOver.setMaxWidth(Double.MAX_VALUE);
+        saveGame.setMaxWidth(Double.MAX_VALUE);
+        quit.setMaxWidth(Double.MAX_VALUE);
+
+        rightPane.getChildren().addAll(gameStatus, startOver, saveGame, quit);
 
         root.setCenter(minefield);
         root.setRight(rightPane);
