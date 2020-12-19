@@ -66,10 +66,20 @@ public class Game {
         this(0, 0, null, filename);
     }
 
+    /**
+     * Returns the number of columns (x) in the minefield
+     * 
+     * @return number of columns in the minefield
+     */
     public int getWidth() {
         return width;
     }
 
+    /**
+     * Returns the number of rows (y) in the minefield
+     * 
+     * @return number of rows in the minefield
+     */
     public int getHeight() {
         return height;
     }
@@ -83,16 +93,43 @@ public class Game {
         return running;
     }
 
+    /**
+     * Returns the value of victory variable. Victory is set at false in the
+     * beginning and true if there is as many squares unopened as there is mines
+     * in total.
+     * 
+     * @return if the game has been won
+     */
     public boolean isVictory() {
         return victory;
     }
 
+    
+    /**
+     * Returns if the square in the coordinates has been opened or not.
+     *
+     * @return true if square has been opened, false otherwise
+     */
     public boolean isOpen(int x, int y) {
         return open[y][x];
     }
-
+    
+    /**
+     * Returns if the square in the coordinates has a flag or not.
+     *
+     * @return true if square has been flagged, false otherwise
+     */
     public boolean isFlag(int x, int y) {
         return flag[y][x];
+    }
+    
+    /**
+     * Returns if the square in the coordinates has a mine or not.
+     *
+     * @return true if square has a mine, false otherwise
+     */
+    public boolean isMine(int x, int y) {
+        return mine[x][y];
     }
 
     /**
@@ -252,6 +289,12 @@ public class Game {
         bw.close();
     }
 
+    /**
+     * Initiates height and width, and 2-dimensional arrays mine, flag,open.
+     * Sets mine and flag values according to the input String array.
+     *
+     * @param array a String array. Contains mines as M and flags as F
+     */
     private void loadTestData(String[] array) {
         int h = array.length;
         int w = array[0].length();
