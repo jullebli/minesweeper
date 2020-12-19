@@ -21,7 +21,7 @@ public class MinesweeperTextUi {
 
         Game game;
         try {
-        game = new Game(width, height);
+            game = new Game(width, height);
         } catch (IOException e) {
             System.out.println("Failed to start the game: " + e);
             return;
