@@ -76,3 +76,5 @@ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 [Viikon 5 release](https://github.com/jullebli/ot-harjoitustyo/releases/tag/viikko5)
 
 [Viikon 6 release](https://github.com/jullebli/ot-harjoitustyo/releases/tag/viikko6)
+
+[loppupalautus](https://github.com/jullebli/minesweeper/releases/tag/loppupalautus)
