@@ -68,6 +68,8 @@ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
 [Käyttöohje](https://github.com/jullebli/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 
+[Testausdokumentti](https://github.com/jullebli/minesweeper/blob/master/dokumentaatio/testaus.md)
+
 
 ## Releaset
 
