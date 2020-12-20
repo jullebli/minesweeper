@@ -17,5 +17,5 @@
 | 19.12  | 2      | graafisen käyttöliittymän muokkaamista (save, load, startover, miinat näkyviin hävittäessä) |
 | 19.12  | 4      | javadoc kuntoon, checkstyle tarkistus, lisää testejä, lisätty varmistusominaisuudet(startover, quit) graafiseen käyttöliittymään |
 | 19.12  | 2      | virheiden käsittelyä, lisää testejä, testausdokumentin aloitus, päivitetty vaatimusmäärittely ja käyttöohje, miinojen määrän |
-| 20.12  |       | arkkitehtuurikuvaus, testausdokumentti, graafisen käyttöliittymän viimeistely |
-|        |yht: 48 | |
+| 20.12  | 7      | arkkitehtuurikuvaus, testausdokumentti, checkstyle parannukset |
+|        |yht: 55 |
