@@ -210,7 +210,7 @@ public class Game {
     private ArrayList<Pair<Integer, Integer>> neigbourCoordinates(int x, int y) {
         ArrayList<Pair<Integer, Integer>> coordinates = new ArrayList<>();
         int[][] neighbours = {{-1, -1}, {-1, 0}, {-1, 1}, {0, 1}, {1, 1}, {1, 0},
-        {1, -1}, {0, -1}};
+                              {1, -1}, {0, -1}};
 
         for (int i = 0; i < 8; i++) {
             int nY = y + neighbours[i][0];
@@ -317,22 +317,10 @@ public class Game {
     }
 
     private boolean[][] loadArray(BufferedReader br) throws IOException {
-        String hString = br.readLine();
-        String wString = br.readLine();
-        
-        if (hString == null || wString == null) {
-            throw new IOException("Corrupted minesweeper file (loadArray)");
-        }
-        
-        int h = Integer.valueOf(hString);
-        int w = Integer.valueOf(wString);
-        
-        if (h < 3 || h > 40 || w < 3 || w > 40) {
-            throw new IOException("Invalid minefield dimensions.");
-        }
+        int h = readDimension(br, 3, 40);
+        int w = readDimension(br, 3, 40);
 
         boolean[][] array = new boolean[h][w];
-
         for (int y = 0; y < h; y++) {
             String line = br.readLine();
             if (line == null || line.length() != w) {
@@ -342,14 +330,37 @@ public class Game {
                 array[y][x] = line.charAt(x) == '1';
             }
         }
-
         return array;
+    }
+    
+    private int readDimension(BufferedReader br, int min, int max) 
+            throws IOException {
+        String dimensionString = br.readLine();
+        if (dimensionString == null) {
+            throw new IOException("Corrupted minesweeper file (loadArray)");
+        }
+        int dimension = Integer.valueOf(dimensionString);
+        if (dimension < min || dimension > max) {
+            throw new IOException("Invalid minefield dimensions.");
+        }
+        return dimension;
     }
 
     private void loadGame(String filename) throws IOException {
         FileReader reader = new FileReader(filename);
         BufferedReader br = new BufferedReader(reader);
 
+        readSaveGameHeader(br);
+        
+        this.mine = loadArray(br);
+        this.open = loadArray(br);
+        this.flag = loadArray(br);
+        this.height = mine.length;
+        this.width = mine[0].length;
+        br.close();
+    }
+
+    private void readSaveGameHeader(BufferedReader br) throws IOException {
         String magic = br.readLine();
         if (magic == null || !magic.equals(saveGameMagic)) {
             throw new IOException("Not a minesweeper file");
@@ -362,14 +373,6 @@ public class Game {
         if (version != saveGameVersion) {
             throw new IOException("Unsupported minesweeper game version");
         }
-        this.mine = loadArray(br);
-        this.open = loadArray(br);
-        this.flag = loadArray(br);
-
-        this.height = mine.length;
-        this.width = mine[0].length;
-
-        br.close();
     }
 
     private int countTrueValues(boolean[][] array) {
