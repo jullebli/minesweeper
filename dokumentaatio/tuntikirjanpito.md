@@ -1,6 +1,6 @@
 # työaikakirjanpito
 
-| päivä  | aika(h) | mitä tein  |
+| päivä  | aika(h)| mitä tein |
 | :-----:| :----- | :-----|
 | 10.11. | 2      | aiheen miettimistä, materiaalien läpikäyntiä |
 | 17.11. | 4      | aiheen miettimistä, valittu miinaharava |
@@ -14,5 +14,8 @@
 | 8.12   | 3      | graafisen käyttöliittymän tekoa, aloitettu javadoc, käyttöohje tehty, muokattu README, testejä lisää |
 | 16.12  | 3      | pelin lataamisominaisuus, konstruktorien muokkaamista |
 | 18.12  | 6      | lisää javadocia, graafinen käyttöliittymän muokkaamista |
-| 19.12  | 2      | graafisen käyttöliittymän muokkaamista (save, load, startover, miinat näkyviin hävittäessä). |
-| 19.12  |       |  |
+| 19.12  | 2      | graafisen käyttöliittymän muokkaamista (save, load, startover, miinat näkyviin hävittäessä) |
+| 19.12  | 4      | javadoc kuntoon, checkstyle tarkistus, lisää testejä, lisätty varmistusominaisuudet(startover, quit) graafiseen käyttöliittymään |
+| 19.12  | 2      | virheiden käsittelyä, lisää testejä, testausdokumentin aloitus, päivitetty vaatimusmäärittely ja käyttöohje, miinojen määrän |
+| 20.12  |       | arkkitehtuurikuvaus, testausdokumentti, graafisen käyttöliittymän viimeistely |
+|        |yht: 48 | |
