@@ -18,11 +18,11 @@ Käyttöliittymän luokkia lukuunottamatta sovelluksen testien rivikattavuus on 
 
 Sovelluksen järjestelmätestaus on suoritettu manuaalisesti.
 
-Sovellus on haettu ja sitä on testattu käyttöohjeessa kuvaamalla tavalla Linux-ympäristössä.
+Sovellus on haettu ja sitä on testattu [käyttöohjeessa](https://github.com/jullebli/minesweeper/blob/master/dokumentaatio/kayttoohje.md) kuvatulla tavalla Linux-ympäristössä.
 
 ### Toiminnallisuudet
 
-Sovellusta on testattu manuaalisesti yrittäen löytää mahdollisimman paljon virhetilanteita. Tämä on pääosin tehty käyttämällä graafista käyttöliittymää odottamattomilla tavoilla, esimerkiksi syöttämällä negatiivisia arvoja ja yrittämällä tallentaa peliä hakemistoon, johon ei ole kirjoitusoikeuksia. Kaikissa tunnetuissa vikatilanteissa sovellus ilmoittaa käyttöliittymässä virhetilanteesta kaatumatta sopivalla tekstillä.
+[Vaatimusmäärittelyssä](https://github.com/jullebli/minesweeper/blob/master/dokumentaatio/vaatimusmaarittely.md) listatut ominaisuudet on testattu manuaalisesti yrittäen löytää mahdollisimman paljon virhetilanteita. Tämä on pääosin tehty käyttämällä graafista käyttöliittymää odottamattomilla tavoilla, esimerkiksi syöttämällä negatiivisia arvoja ja yrittämällä tallentaa peliä hakemistoon, johon ei ole kirjoitusoikeuksia. Kaikissa tunnetuissa vikatilanteissa sovellus ilmoittaa käyttöliittymässä virhetilanteesta kaatumatta sopivalla tekstillä.
 
 ## Sovellukseen jääneet laatuongelmat
 
