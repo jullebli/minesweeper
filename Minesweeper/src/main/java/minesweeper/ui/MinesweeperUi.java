@@ -15,7 +15,6 @@ public class MinesweeperUi extends Application {
 
         BorderPane root = new BorderPane();
 
-        //root.setCenter(play.getView());
         root.setCenter(setup.getView());
         setup.setOnSetupComplete(event -> {
             

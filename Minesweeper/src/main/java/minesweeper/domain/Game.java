@@ -42,7 +42,7 @@ public class Game {
             this.mine = new boolean[height][width];
             this.flag = new boolean[height][width];
 
-            placeRandomMines((int)Math.ceil(width * height * MINE_DENSITY));
+            placeRandomMines((int) Math.ceil(width * height * MINE_DENSITY));
 
         } else if (filename != null) {
             loadGame(filename);
@@ -320,7 +320,7 @@ public class Game {
         String hString = br.readLine();
         String wString = br.readLine();
         
-        if (hString == null || wString == null ) {
+        if (hString == null || wString == null) {
             throw new IOException("Corrupted minesweeper file (loadArray)");
         }
         
