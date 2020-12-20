@@ -7,7 +7,7 @@ Sovelluksen avulla pelaaja voi pelata miinaharavapeliä. Pelissä on tarkoitus a
 Sovellus käyttää graafista käyttöliittymää, mutta kehityksen aikainen tekstikäyttöliittymä on sovelluksessa mukana.
 
 
-## Suunnitellut toiminnallisuudet perusversioon
+## Perusversion toiminnallisuudet
 
 - pelaaja voi aloittaa uuden pelin
   - pelaaja voi valita kentän koon
