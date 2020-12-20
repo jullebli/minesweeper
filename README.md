@@ -8,11 +8,11 @@ Sovelluksen avulla pelaaja voi pelata miinaharavapeliä. Pelissä on tarkoitus a
 
 Koodin pystyy suorittamaan Netbeansissä ja Minesweeper-alihakemistossa komennolla:
 ```
-mvn compile exec:java -Dexec.mainClass=minesweeper.ui.MinesweeperTextUi
+mvn compile exec:java -Dexec.mainClass=minesweeper.ui.Main
 ```
 tai sitten jar-komennolla:
 ```
-java -jar target/Minesweeper-1.0-SNAPSHOT.jar 
+java -jar target/Minesweeper-7.0.jar 
 ```
 
 
@@ -26,7 +26,7 @@ testiraportin suoritus:
 ```
 mvn test jacoco:report
 ```
-raporttia voi tarkastella avaamalla selaimella tiedosto /target/site/jacoco/index.html
+raporttia voi tarkastella avaamalla selaimella tiedosto target/site/jacoco/index.html
 
 
 
